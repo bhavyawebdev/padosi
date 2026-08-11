@@ -1,0 +1,220 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LocalPulse - Home Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#2c4e34",
+                        "on-background": "#1c1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fdae8f",
+                        "surface-container": "#f0ede9",
+                        "on-primary-container": "#f6fff3",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302d",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-tint": "#44664b",
+                        "primary-fixed-dim": "#aad0ae",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fcf9f4",
+                        "tertiary": "#5f5b56",
+                        "on-tertiary-fixed": "#1e1b17",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#c5ecc9",
+                        "surface-dim": "#dcdad5",
+                        "outline-variant": "#c2c8bf",
+                        "on-surface-variant": "#424842",
+                        "outline": "#727971",
+                        "surface-container-high": "#ebe8e3",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#416448",
+                        "tertiary-container": "#78746f",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4a4642",
+                        "on-secondary-fixed-variant": "#6e3820",
+                        "tertiary-fixed-dim": "#ccc5bf",
+                        "tertiary-fixed": "#e8e1db",
+                        "surface-container-highest": "#e5e2dd",
+                        "secondary-fixed-dim": "#ffb599",
+                        "on-secondary-container": "#783f28",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface-container-low": "#f6f3ee",
+                        "on-primary-fixed": "#00210c",
+                        "primary-container": "#597d60",
+                        "inverse-primary": "#aad0ae",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fcf9f4",
+                        "secondary": "#8b4e35",
+                        "surface": "#fcf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "xl": "48px",
+                        "md": "20px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative pb-24 pt-[72px]">
+<!-- TopAppBar (from JSON) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-xs h-[72px]">
+<div class="flex items-center"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCzwxq5LaGMij9CVV4xUcXixlwIgazQgY9IGI7fM4TH_AXhf2inh_aUBPhb6AyG047zOgQvYaHRGY5IycPwezqImG8vzgvByVpwHjyv7Ec74XUr8BY6G33G38jaMnCukcD_7i9hkVb1wfd16B4uhvrLkoED0_zKuwZQEXmat_hG83MLRcEf3QzCX32z6WKJ1mKt9m0xKG0mzO52t1GXUou8jck37lHHc1BRpxYPA6xsq4Xv1Oe-1q" alt="LocalPulse Logo" class="h-[28px] w-auto object-contain"></div>
+<div>
+<img alt="Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant shadow-sm" data-alt="A small circular profile picture of a young professional wearing casual clothing, smiling gently in soft, natural daylight. The background is a soft, out-of-focus outdoor setting. This is a lifestyle UI avatar shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Tp8F85wn2ZywFJpIiOXjRnKXbp1loayOSnl5ksEvdu2rGvSFFGSR6vaEnbxC8V2UX2CP22Qo3_QjkychjVSTNZgmeyV4zDmGd_DGyVMLe_Fgi4Rpmpvq2bP0u5vj-aVAmnk7nWgqqXcIcliea6RrbxRxixOkvrBF5JX0EhrhTOtX5qaFHw92AApVCOxEpyZTKVpEuA2Q9xtwkFqeEzJ6CbooSh52DpLbIMJijvE0SFHHerDPYtkE">
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-md flex flex-col gap-md max-w-3xl mx-auto w-full">
+<!-- Tabs (Custom, replacing JSON BottomNavBar logic for this specific view intent, but keeping BottomNavBar for overall shell later) -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-1 -mx-margin-mobile px-margin-mobile">
+<button class="bg-primary-container text-on-primary-container rounded-full px-4 py-2 text-label-md font-label-md whitespace-nowrap transition-transform duration-150 active:scale-95 shadow-sm">Nearby</button>
+<button class="bg-surface-container-low text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 text-label-md font-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Help</button>
+<button class="bg-surface-container-low text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 text-label-md font-label-md whitespace-nowrap hover:bg-surface-variant transition-colors">Needs</button>
+</div>
+<!-- Feed List -->
+<div class="flex flex-col gap-lg mt-2">
+<!-- Card 1: Urgent Alert -->
+<article class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-md shadow-[0_4px_12px_rgba(253,174,143,0.1)] flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-3 py-1 rounded-bl-lg text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span> URGENT
+                </div>
+<div class="flex items-start gap-3 mt-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<h2 class="text-body-lg font-body-lg font-semibold text-on-background">Water Supply Disruption</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Posted by BMC Ward Office • 10 mins ago</p>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface">Emergency pipeline repair near Carter Road. Water supply will be cut off for the next 4 hours. Please store accordingly.</p>
+<div class="flex gap-2 mt-2">
+<button class="bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-md text-label-sm font-label-sm hover:bg-surface-variant transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="share">share</span> Share</button>
+</div>
+</article>
+<!-- Card 2: Verified Recommendation -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="User" class="w-10 h-10 rounded-full object-cover" data-alt="A small circular profile picture of an elderly woman with silver hair, wearing a warm, knitted cardigan, sitting by a sunny window. The lighting is soft and golden, conveying trust and local community vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP10UWGPuQQ6a8ZX00O5lRu9xjkS9O34m3iGsSu_VDPP1xA5d-Z58VnyL-8fodVhDmy7e6ZqWdarsHfys9osDgbybrTVmKuYypxZOdXW4F8T3B86TIwnVuzh8g61TEHbFB5u3KviWenpeEsavZqSCZJAiYJVAqfWIfHqgFiyKcyifG0qfk0b2Vj3vWJjHDI7KuUDOYFsK4t2xZ7zNISZUk25UueoJr2nDY7tnyfuYllfxZY81Ixycu">
+<div>
+<div class="flex items-center gap-1">
+<h3 class="text-label-md font-label-md text-on-background font-semibold">Meera Aunty</h3>
+<div class="bg-primary w-4 h-4 rounded-full flex items-center justify-center" title="Verified Resident">
+<span class="material-symbols-outlined text-on-primary" data-icon="check" data-weight="fill" style="font-size: 10px;">check</span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Pali Hill • 2 hours ago</p>
+</div>
+</div>
+<span class="bg-primary-fixed-dim/30 text-primary-fixed px-2 py-1 rounded-md text-label-sm font-label-sm">Recommendation</span>
+</div>
+<h2 class="text-body-lg font-body-lg font-semibold text-on-background mt-1">Excellent North Indian Cook</h2>
+<p class="text-body-md font-body-md text-on-surface">Ramesh has been cooking for us for 5 years. He's looking for a new family in the afternoon slot (1 PM - 4 PM). Highly reliable and makes amazing dal makhani.</p>
+<div class="flex gap-2 mt-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-md font-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Contact Ramesh</button>
+<button class="bg-surface-container text-on-surface-variant px-3 py-2 rounded-lg text-label-md font-label-md hover:bg-surface-variant transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="thumb_up">thumb_up</span> 12</button>
+</div>
+</article>
+<!-- Card 3: Borrowing Request -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm flex flex-col gap-sm border-l-4 border-l-secondary">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold">
+                            S
+                        </div>
+<div>
+<h3 class="text-label-md font-label-md text-on-background font-semibold">Samir K.</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Perry Cross Rd • 5 hours ago</p>
+</div>
+</div>
+<span class="bg-secondary-fixed/50 text-on-secondary-container px-2 py-1 rounded-md text-label-sm font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="handshake">handshake</span> Need to Borrow</span>
+</div>
+<h2 class="text-body-lg font-body-lg font-semibold text-on-background mt-1">Tall Ladder needed for 1 hour</h2>
+<p class="text-body-md font-body-md text-on-surface">Need to clear some leaves from my first-floor balcony drain before the rains hit tonight. Does anyone nearby have a 10ft+ ladder I could borrow briefly?</p>
+<div class="flex gap-2 mt-2">
+<button class="bg-surface-container-high border border-outline text-on-surface px-4 py-2 rounded-lg text-label-md font-label-md hover:bg-surface-variant transition-colors">I can lend it</button>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-[88px] right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-lg flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar (from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-xs pb-sm pt-xs bg-surface-container-low shadow-[0_-1px_4px_rgba(0,0,0,0.05)] border-t border-outline-variant/30 h-[72px] md:hidden">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-label-sm font-label-sm">Nearby</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="verified_user">verified_user</span>
+<span class="text-label-sm font-label-sm">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="bolt">bolt</span>
+<span class="text-label-sm font-label-sm">Needs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+
+
+</body></html>

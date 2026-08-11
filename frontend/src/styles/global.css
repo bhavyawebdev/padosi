@@ -1,0 +1,70 @@
+@import "./theme.css";
+@import "./dark.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-body-md);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Warm, recessed focus rings that respect the paper palette */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Warm text-selection tint (matches the paper palette) */
+::selection {
+  background-color: var(--color-primary-fixed-dim);
+  color: var(--color-on-primary-fixed);
+}
+
+/* Leaflet needs its own stacking context so its panes (z 400–700) never
+   paint over the fixed header / chat widget. */
+.leaflet-container {
+  z-index: 0;
+  font-family: var(--font-body-md);
+}
+
+/* Thin warm scrollbar (from screen 03) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-outline-variant);
+  border-radius: 9999px;
+}
+
+/* Hide scrollbar for chip rows (from screens 01/02) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*
+ * Notched-phone (iPhone) safe areas. `viewport-fit=cover` lets the app bleed
+ * under the notch / home indicator; these utilities keep chrome clear of it.
+ * Un-layered on purpose so they win over Tailwind's layered padding utilities.
+ */
+.safe-top {
+  padding-top: calc(env(safe-area-inset-top) + 0.5rem);
+}
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
+}

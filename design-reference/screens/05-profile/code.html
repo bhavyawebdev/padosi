@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - LocalPulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#2c4e34",
+                        "on-background": "#1c1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#fdae8f",
+                        "surface-container": "#f0ede9",
+                        "on-primary-container": "#f6fff3",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302d",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-tint": "#44664b",
+                        "primary-fixed-dim": "#aad0ae",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#fcf9f4",
+                        "tertiary": "#5f5b56",
+                        "on-tertiary-fixed": "#1e1b17",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#c5ecc9",
+                        "surface-dim": "#dcdad5",
+                        "outline-variant": "#c2c8bf",
+                        "on-surface-variant": "#424842",
+                        "outline": "#727971",
+                        "surface-container-high": "#ebe8e3",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "primary": "#416448",
+                        "tertiary-container": "#78746f",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4a4642",
+                        "on-secondary-fixed-variant": "#6e3820",
+                        "tertiary-fixed-dim": "#ccc5bf",
+                        "tertiary-fixed": "#e8e1db",
+                        "surface-container-highest": "#e5e2dd",
+                        "secondary-fixed-dim": "#ffb599",
+                        "on-secondary-container": "#783f28",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface-container-low": "#f6f3ee",
+                        "on-primary-fixed": "#00210c",
+                        "primary-container": "#597d60",
+                        "inverse-primary": "#aad0ae",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-bright": "#fcf9f4",
+                        "secondary": "#8b4e35",
+                        "surface": "#fcf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "xl": "48px",
+                        "md": "20px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md pb-24 md:pb-0">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-xs bg-background border-b border-outline-variant sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">location_on</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">LocalPulse</h1>
+</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant rounded-full px-4 py-2 transition-colors" href="#">Nearby</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant rounded-full px-4 py-2 transition-colors" href="#">Help</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant rounded-full px-4 py-2 transition-colors" href="#">Needs</a>
+<a class="text-on-background font-label-md text-label-md font-bold bg-surface-variant rounded-full px-4 py-2" href="#">Profile</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant border border-outline-variant cursor-pointer">
+<img alt="Profile avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a friendly, approachable man with warm lighting, shot in a soft, modern cinematic style. The background is slightly blurred showing a hint of green nature, reflecting a calm and neighborly vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFm9Y-64Hebc4sBa5zO_ZM76fTLle1R6mcnhG56CP-KG77TRTI0qgZ6byYPFRr0FedPyNWbl3OVdXzKxCk8o1dUp3EjU0Bn_ZwwaFEktb0eggVxP3DFNWTiA4s5d_-wZ9Z6z-psoycDu9vVskO3ho01Qm06owmatshq_iOjepEuec8wrS4LEwXXfYOHpPvP-ES-XGVCWSK_puYFOhA7H8n465LrFpow1obdKFY0bkDtMZjDBFza7b1"/>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="flex md:hidden justify-between items-center w-full px-margin-mobile py-xs bg-background sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">location_on</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">LocalPulse</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant border border-outline-variant cursor-pointer">
+<img alt="Profile avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a friendly, approachable man with warm lighting, shot in a soft, modern cinematic style. The background is slightly blurred showing a hint of green nature, reflecting a calm and neighborly vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5GaZfAQP3Que_6NcLitYqwcnfJfkXRLo15mdvWKCtRgQf1amUBRxqRAOKsEujC6D5oYQFxgDLltbgHOO1lzwtaxUphZ_hHAe54B8Xp4BHG0dNnbaQFw7fVTIRQ3m07EXLQPDysc5H7_yRgjkTZzULa7cWZxFg9VJPE6S5cC79hvVBd52oqNk5pZ3fVGdgJ2YJueAwcB2vyLsobd13mqaE7rMz0ediu4fOBfsCWLfzBUP60yNZJHW1"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Profile Header Bento -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-lg">
+<!-- Identity Card -->
+<div class="md:col-span-8 bg-surface-container rounded-xl p-lg border border-surface-variant flex flex-col md:flex-row items-start md:items-center gap-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed-dim/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-surface-variant border-4 border-background shrink-0 relative z-10 shadow-sm">
+<img alt="Arjun K. Profile Photo" class="w-full h-full object-cover" data-alt="A high-quality, welcoming portrait of Arjun K. outdoors in a sunny neighborhood setting. He has a calm, neighborly smile. The lighting is soft and natural, emphasizing a trustworthy and approachable persona, in line with the soft minimal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKOm4slJ78AnidlidtPOBlQfYY_cM5-lUtI1rRcoRntP5RamxgVZCHcizkg_AiTbgGS2BcwGQX_uU_MIkqglzjsQn88LDEQsr6N2PxNTvC-swhuNXgNxArjms8Tv34K2zcijtJThV3TYSgGunvQ_-wTLOozDYkD8KICQ9xINi18beQi_bKf7gJa6f-L337Sspho4SoqTPfjycMi3K5fKjq8imqv9Vbs52FgqQUua1yJl1MrzF5eUfD"/>
+</div>
+<div class="flex-1 relative z-10">
+<div class="flex items-center gap-2 mb-1">
+<h2 class="text-headline-xl font-headline-xl text-on-background">Arjun K.</h2>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">pin_drop</span> Pali Hill
+                    </p>
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20">
+<span class="material-symbols-outlined fill text-[18px]">verified</span>
+<span class="text-label-sm font-label-sm font-bold">Verified Resident</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 z-10 md:static">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-tint transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">edit</span> Edit
+                    </button>
+</div>
+</div>
+<!-- Stats Card -->
+<div class="md:col-span-4 grid grid-rows-2 gap-gutter">
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant flex items-center justify-between shadow-sm">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Helps Given</p>
+<p class="text-headline-lg font-headline-lg text-on-background">12</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined fill text-[24px]">favorite</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant flex items-center justify-between shadow-sm">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Recommendations</p>
+<p class="text-headline-lg font-headline-lg text-on-background">4</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined fill text-[24px]">thumb_up</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Left Column: Badges & About -->
+<div class="md:col-span-1 flex flex-col gap-gutter">
+<!-- Badges -->
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant">
+<h3 class="text-headline-md font-headline-md text-on-background mb-4">Badges</h3>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 bg-surface-variant/50 px-3 py-2 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_florist</span>
+<span class="text-label-sm font-label-sm text-on-surface">Plant Whisperer</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-variant/50 px-3 py-2 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-tertiary text-[20px]">pets</span>
+<span class="text-label-sm font-label-sm text-on-surface">Dog Walker</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-variant/50 px-3 py-2 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-[20px]">handshake</span>
+<span class="text-label-sm font-label-sm text-on-surface">Early Adopter</span>
+</div>
+</div>
+</div>
+<!-- About -->
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant">
+<h3 class="text-headline-md font-headline-md text-on-background mb-3">About</h3>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                        Hi neighbors! I've been living in Pali Hill for 3 years. Always happy to help water plants when you're away or grab groceries for those in a pinch. Love community gardening.
+                    </p>
+</div>
+</div>
+<!-- Right Column: Recent Activity -->
+<div class="md:col-span-2 flex flex-col gap-gutter">
+<h3 class="text-headline-md font-headline-md text-on-background px-2">Recent Activity</h3>
+<!-- Activity Item 1 -->
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-transform hover:-translate-y-1 duration-200">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-primary text-[20px]">volunteer_activism</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-label-md font-label-md text-on-background">Helped with Groceries</h4>
+<span class="text-label-sm font-label-sm text-outline">2 days ago</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-3">Picked up essential supplies for Mrs. Sharma down the street during the heavy rains.</p>
+<div class="flex gap-2">
+<span class="inline-flex items-center text-xs font-label-sm text-on-surface-variant bg-surface-variant px-2 py-1 rounded">Help Given</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-transform hover:-translate-y-1 duration-200">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shrink-0 mt-1">
+<img alt="Plant" class="w-full h-full object-cover" data-alt="A small, soft-focus image of a lush monstera plant in a terracotta pot, sitting on a sunlit windowsill. Warm, inviting natural light, reflecting a peaceful home environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvTCx_LyrPX7VNhM_9Ld3Y1qSpdYd4qRZqc3aVvRp5LiD6bPLwIpZoxmTWBpRw3m4axVeq1siOPIfo6UNr3bNqztxAptGkQNN1DdnzSdCSPVNPhXCmLPPjClCvP-FWhx8VDwwrArP_UvyloZ_2rdSfnbQp9cTkZ9x-SnVvLdS_V7ADV9vuwX0ddoVhlEyEyOdBRlfzKulXY7fo610qQD6himL8cB3L-ahZmW92TKPqWck1m2rgqPyJ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-label-md font-label-md text-on-background">Posted in Needs</h4>
+<span class="text-label-sm font-label-sm text-outline">1 week ago</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-3">Looking to borrow a small drill for the weekend to hang some planters. Will return promptly!</p>
+<div class="flex gap-2">
+<span class="inline-flex items-center text-xs font-label-sm text-on-surface-variant bg-surface-variant px-2 py-1 rounded">Need Requested</span>
+<span class="inline-flex items-center text-xs font-label-sm text-primary bg-primary/10 px-2 py-1 rounded">Resolved</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="bg-surface-container rounded-xl p-md border border-surface-variant shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-transform hover:-translate-y-1 duration-200">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-tertiary text-[20px]">forum</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-label-md font-label-md text-on-background">Recommended a local business</h4>
+<span class="text-label-sm font-label-sm text-outline">2 weeks ago</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Shoutout to 'Green Leaf Bakery' on Main St. Their sourdough is amazing and they always use local ingredients.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-xs pb-sm pt-xs bg-surface-container-low shadow-[0_-1px_4px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-label-sm font-label-sm mt-1">Nearby</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<span class="text-label-sm font-label-sm mt-1">Help</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">bolt</span>
+<span class="text-label-sm font-label-sm mt-1">Needs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 transition-all" href="#">
+<span class="material-symbols-outlined fill text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
