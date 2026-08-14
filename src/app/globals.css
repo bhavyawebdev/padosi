@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+
+  --color-surface: #fcf9f8;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e4e2e1;
+
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #55433c;
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f3f0f0;
+
+  --color-outline: #88736b;
+  --color-outline-variant: #dbc1b8;
+  --color-surface-tint: #974723;
+
+  --color-primary: #823815;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #a14f2a;
+  --color-on-primary-container: #ffded2;
+  --color-inverse-primary: #ffb597;
+
+  --color-secondary: #9b442a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fd9070;
+  --color-on-secondary-container: #752810;
+
+  --color-tertiary: #694800;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #885e00;
+  --color-on-tertiary-container: #ffe0b3;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-primary-fixed: #ffdbcd;
+  --color-primary-fixed-dim: #ffb597;
+  --color-on-primary-fixed: #360f00;
+  --color-on-primary-fixed-variant: #79310d;
+
+  --color-secondary-fixed: #ffdbd1;
+  --color-secondary-fixed-dim: #ffb59f;
+  --color-on-secondary-fixed: #3a0a00;
+  --color-on-secondary-fixed-variant: #7c2d15;
+
+  --color-tertiary-fixed: #ffdeab;
+  --color-tertiary-fixed-dim: #febb3b;
+  --color-on-tertiary-fixed: #281900;
+  --color-on-tertiary-fixed-variant: #5f4100;
+
+  --color-background: #fcf9f8;
+  --color-on-background: #1b1c1c;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --shadow-soft: 0 4px 20px rgba(161, 79, 42, 0.04);
+  --shadow-soft-hover: 0 6px 24px rgba(161, 79, 42, 0.08);
+}
+
+:root {
+  --font-manrope: "Manrope", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: #fcf9f8;
+  color: #1b1c1c;
+  -webkit-font-smoothing: antialiased;
+}
+
+.soft-card-shadow {
+  box-shadow: 0 4px 20px rgba(161, 79, 42, 0.04);
+}
+
+.hover-lift {
+  transition: transform 0.18s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.18s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.hover-lift:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(161, 79, 42, 0.08);
+}
+
+.active-nav-item {
+  background-color: #fd9070;
+  color: #752810;
+}
+
+/* Material Symbols sizing & setup */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Typography tokens */
+.display-lg {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .headline-lg {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.headline-md {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.body-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.label-md {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+/* Scrollbar hide utility — keeps scroll functional but hides the scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* iOS safe area bottom padding */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
