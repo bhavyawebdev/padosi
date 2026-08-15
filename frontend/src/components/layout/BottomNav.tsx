@@ -13,8 +13,6 @@ const ITEMS = [
 
 export function BottomNav() {
   const { user } = useAuth();
-  // Admin/community: swap "Needs" for "Admin" (the in-page Nearby/Help/Needs
-  // tab row still links to Needs), keeping Saved available to every role.
   const items =
     user && (user.role === "admin" || user.role === "community")
       ? [ITEMS[0], ITEMS[1], { to: "/admin", label: "Admin", icon: "admin_panel_settings" }, ITEMS[3], ITEMS[4]]
@@ -23,7 +21,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Primary"
-      className="safe-bottom md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-2 pt-2 bg-surface-container-low border-t border-outline-variant/30 shadow-[0_-1px_4px_rgba(0,0,0,0.05)]"
+      className="safe-bottom md:hidden fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-2 pb-sm pt-xs bg-surface-container-low border-t border-outline-variant/30 shadow-[0_-1px_4px_rgba(0,0,0,0.05)]"
     >
       {items.map((item) => (
         <NavLink

@@ -3,6 +3,7 @@ import { Navigate, createBrowserRouter, RouterProvider } from "react-router-dom"
 import { AppLayout } from "@/components/layout/AppLayout";
 import { AdminLayout } from "@/components/layout/AdminLayout";
 import { useAuth } from "@/hooks/useAuth";
+import { LandingPage } from "@/pages/LandingPage";
 import { LoginPage } from "@/pages/auth/LoginPage";
 import { SignupPage } from "@/pages/auth/SignupPage";
 import { ForgotPasswordPage } from "@/pages/auth/ForgotPasswordPage";
@@ -29,6 +30,7 @@ function PublicOnly({ children }: { children: React.ReactNode }) {
 }
 
 const router = createBrowserRouter([
+  { path: "/", element: <LandingPage /> },
   { path: "/login", element: <PublicOnly><LoginPage /></PublicOnly> },
   { path: "/signup", element: <PublicOnly><SignupPage /></PublicOnly> },
   { path: "/forgot-password", element: <PublicOnly><ForgotPasswordPage /></PublicOnly> },
@@ -37,7 +39,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
-      { index: true, element: <Navigate to="/nearby" replace /> },
       { path: "nearby", element: <HomeFeedPage /> },
       { path: "help", element: <DirectoryPage /> },
       { path: "providers/:id", element: <ProviderDetailPage /> },
@@ -52,7 +53,6 @@ const router = createBrowserRouter([
     ],
   },
   {
-    // Dedicated admin console — its own layout, no customer nav.
     path: "/admin",
     element: <AdminLayout />,
     children: [

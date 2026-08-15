@@ -26,7 +26,6 @@ export function DirectoryPage() {
     request();
   }, [request]);
 
-  // Browsing another locality? Query around it instead of the GPS point.
   const center = view ?? point;
   const providers = useProviders(
     {
@@ -40,37 +39,43 @@ export function DirectoryPage() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      {/* Header row */}
-      <div className="flex items-end justify-between gap-4 flex-wrap">
-        <div>
-          <h1 className="text-headline-lg-mobile font-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-background">
-            Verified Help
-          </h1>
-          <p className="text-body-md font-body-md text-on-surface-variant">
-            Trusted by neighbors, not ads.
-          </p>
+    <div>
+      {/* Header */}
+      <h1 className="font-headline-lg font-bold text-3xl mb-2">Verified Help</h1>
+      <p className="text-on-surface-variant mb-8">Trusted recommendations from neighbors in {user?.locality?.name ?? "your area"}.</p>
+
+      {/* Search + verified toggle */}
+      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <div className="flex-1">
+          <SearchInput
+            placeholder="Search cook, maid, tutor, plumber..."
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            aria-label="Search providers"
+          />
         </div>
-        <button
-          onClick={() => setFormOpen(true)}
-          className="inline-flex items-center gap-1.5 bg-primary text-on-primary px-4 py-2 rounded-full text-label-md font-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm active:scale-95"
-        >
-          <span aria-hidden className="material-symbols-outlined text-[18px]">
-            add_business
-          </span>
-          List your service
-        </button>
+        <label className="flex items-center gap-2 bg-white border border-outline-variant/60 rounded-full px-4 py-3 text-sm font-medium cursor-pointer">
+          <input
+            checked={verifiedOnly}
+            onChange={(e) => setVerifiedOnly(e.target.checked)}
+            className="rounded text-primary focus:ring-primary"
+            type="checkbox"
+          />
+          Verified only
+        </label>
       </div>
 
-      {/* Locality context row — browsing chip + mobile switcher */}
+      {/* Locality context */}
       <LocalityContextRow />
 
-      {/* Search */}
-      <SearchInput placeholder="Search cook, maid, tutor…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search providers" />
-
-      {/* Category chips (screen 02) */}
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-margin-mobile px-margin-mobile">
-        <Chip label="All" active={category === "all"} onClick={() => setCategory("all")} icon="apps" />
+      {/* Category chips */}
+      <div className="flex flex-wrap gap-2.5 mb-10 mt-4">
+        <Chip
+          label="All"
+          active={category === "all"}
+          onClick={() => setCategory("all")}
+          icon="apps"
+        />
         {PROVIDER_CATEGORIES.map((c) => (
           <Chip
             key={c.value}
@@ -80,21 +85,13 @@ export function DirectoryPage() {
             onClick={() => setCategory(c.value === category ? "all" : c.value)}
           />
         ))}
-        <Chip
-          label="Verified only"
-          icon="verified_user"
-          active={verifiedOnly}
-          onClick={() => setVerifiedOnly((v) => !v)}
-          tone="primary"
-          activeClassName="bg-primary-fixed-dim/40 text-on-primary-fixed-variant border border-primary"
-        />
       </div>
 
-      {/* Provider list */}
+      {/* Provider grid */}
       {!center ? (
         <LoadingState label="Locating you…" />
       ) : providers.isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <SkeletonCard />
           <SkeletonCard />
           <SkeletonCard />
@@ -108,9 +105,11 @@ export function DirectoryPage() {
           message="Try widening your search, or be the first verified neighbor to offer this service."
         />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {(providers.data ?? []).map((provider) => (
-            <ProviderCard key={provider.id} provider={provider} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(providers.data ?? []).map((provider, idx) => (
+            <div key={provider.id} className="animate-card-stagger hover-lift" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <ProviderCard provider={provider} />
+            </div>
           ))}
         </div>
       )}

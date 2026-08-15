@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nearby Right Now — LocalPulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    background:'#fcf9f4', 'surface-container-lowest':'#ffffff','surface-container-low':'#f6f3ee',
+    'surface-container':'#f0ede9','surface-container-high':'#ebe8e3',
+    'on-surface':'#1c1c19','on-surface-variant':'#424842',
+    outline:'#727971','outline-variant':'#c2c8bf',
+    primary:'#416448','on-primary':'#ffffff','primary-container':'#597d60','on-primary-container':'#f6fff3',
+    secondary:'#8b4e35','on-secondary':'#ffffff','secondary-container':'#fdae8f','on-secondary-container':'#783f28',
+    tertiary:'#5f5b56'
+  },
+  fontFamily:{display:['"Be Vietnam Pro"','sans-serif'],body:['Manrope','sans-serif']},
+  borderRadius:{xl2:'1.5rem'}
+}}}
+</script>
+<style>
+  body{font-family:'Manrope',sans-serif;background:#fcf9f4;color:#1c1c19}
+  h1,h2,h3,.font-display{font-family:'Be Vietnam Pro',sans-serif}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-outline-variant/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <span class="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
+      <span class="font-display font-bold text-xl">Local<span class="text-primary">Pulse</span></span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+      <a class="text-primary border-b-2 border-primary pb-1" href="#">Nearby Right Now</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Verified Help</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Need It Now</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="bg-primary text-on-primary text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-primary-container transition-colors flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-lg">add</span> Post update
+      </button>
+      <div class="w-10 h-10 rounded-full bg-secondary-container border border-outline-variant/40"></div>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10 grid lg:grid-cols-[260px_1fr_320px] gap-8">
+
+  <!-- LEFT: filters -->
+  <aside class="space-y-6">
+    <div class="flex items-center gap-2 text-sm font-semibold text-on-surface-variant bg-surface-container-low rounded-full px-4 py-2.5 border border-outline-variant/40 w-fit">
+      <span class="material-symbols-outlined text-lg text-primary">location_on</span> Pali Hill, Bandra West
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-5">
+      <p class="font-display font-bold mb-4">Category</p>
+      <div class="space-y-1">
+        <label class="flex items-center gap-3 py-1.5 cursor-pointer">
+          <input checked class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+          <span class="text-sm">All updates</span>
+        </label>
+        <label class="flex items-center gap-3 py-1.5 cursor-pointer">
+          <input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+          <span class="text-sm">🚧 Traffic</span>
+        </label>
+        <label class="flex items-center gap-3 py-1.5 cursor-pointer">
+          <input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+          <span class="text-sm">💧 Utility</span>
+        </label>
+        <label class="flex items-center gap-3 py-1.5 cursor-pointer">
+          <input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+          <span class="text-sm">🚓 Safety</span>
+        </label>
+        <label class="flex items-center gap-3 py-1.5 cursor-pointer">
+          <input class="rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+          <span class="text-sm">🎉 Event</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-5">
+      <p class="font-display font-bold mb-4">Radius</p>
+      <input class="w-full accent-primary" max="5" min="0.5" step="0.5" type="range" value="2"/>
+      <p class="text-sm text-on-surface-variant mt-2">Within 2 km</p>
+    </div>
+  </aside>
+
+  <!-- CENTER: feed -->
+  <main>
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="font-display font-bold text-2xl">Nearby Right Now</h1>
+      <p class="text-sm text-on-surface-variant">14 updates active</p>
+    </div>
+
+    <div class="space-y-4">
+      <article class="bg-white rounded-xl2 border-l-4 border-secondary border-y border-r border-outline-variant/40 p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wide bg-secondary/10 text-secondary px-3 py-1 rounded-full flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">warning</span> Urgent
+          </span>
+          <span class="text-xs text-on-surface-variant">10 mins ago · 400m away</span>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-1.5">Water Supply Disruption</h3>
+        <p class="text-sm text-on-surface-variant mb-1">Posted by BMC Ward Office</p>
+        <p class="text-on-surface leading-relaxed">Emergency pipeline repair near Carter Road. Water supply will be cut off for the next 4 hours. Please store accordingly.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">check_circle</span> Still happening (18)
+          </button>
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">share</span> Share
+          </button>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wide bg-tertiary/10 text-tertiary px-3 py-1 rounded-full">🚧 Traffic</span>
+          <span class="text-xs text-on-surface-variant">32 mins ago · 900m away</span>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-1.5">Auto Strike Near Bandra Station</h3>
+        <p class="text-sm text-on-surface-variant mb-1">Posted by Rohan D.</p>
+        <p class="text-on-surface leading-relaxed">Autos not running near the station entrance today. Cabs available but surge pricing is on. Plan an extra 15 mins.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">check_circle</span> Still happening (7)
+          </button>
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">share</span> Share
+          </button>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold uppercase tracking-wide bg-primary/10 text-primary px-3 py-1 rounded-full">🎉 Event</span>
+          <span class="text-xs text-on-surface-variant">2 hours ago · 1.1km away</span>
+        </div>
+        <h3 class="font-display font-bold text-lg mb-1.5">Society Ganesh Chaturthi Setup</h3>
+        <p class="text-sm text-on-surface-variant mb-1">Posted by Sagar Society RWA</p>
+        <p class="text-on-surface leading-relaxed">Pandal setup starts tomorrow 6 AM near Gate 2. Expect the inner lane to be partially blocked till evening.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">check_circle</span> Still happening (24)
+          </button>
+          <button class="text-sm font-semibold text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 hover:bg-surface-container-low transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-lg">share</span> Share
+          </button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- RIGHT: sidebar widgets -->
+  <aside class="space-y-6">
+    <div class="bg-surface-container-low rounded-xl2 border border-outline-variant/40 p-5">
+      <p class="font-display font-bold mb-4">Trusted this week</p>
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-container"></div>
+          <div>
+            <p class="text-sm font-semibold">Sita Bai <span class="text-primary text-xs">✓ Verified</span></p>
+            <p class="text-xs text-on-surface-variant">Cook · 12 neighbors</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-secondary-container"></div>
+          <div>
+            <p class="text-sm font-semibold">Lakshmi <span class="text-primary text-xs">✓ Verified</span></p>
+            <p class="text-xs text-on-surface-variant">Maid · 24 neighbors</p>
+          </div>
+        </div>
+      </div>
+      <a class="text-sm font-semibold text-primary mt-4 inline-flex items-center gap-1" href="#">See Verified Help <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+    </div>
+
+    <div class="bg-surface-container-low rounded-xl2 border border-outline-variant/40 p-5">
+      <p class="font-display font-bold mb-4">Open requests near you</p>
+      <div class="space-y-3">
+        <div class="text-sm">
+          <p class="font-semibold">Tall Ladder needed for 1 hour</p>
+          <p class="text-on-surface-variant text-xs">350m away · Perry Cross Rd</p>
+        </div>
+        <div class="text-sm">
+          <p class="font-semibold">Anyone going to airport 5 AM?</p>
+          <p class="text-on-surface-variant text-xs">3 min walk from you</p>
+        </div>
+      </div>
+      <a class="text-sm font-semibold text-primary mt-4 inline-flex items-center gap-1" href="#">See Need It Now <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+    </div>
+  </aside>
+
+</div>
+</body></html>

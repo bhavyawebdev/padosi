@@ -68,7 +68,7 @@ export function LoginPage() {
 
   return (
     <AuthLayout subtitle="What's happening near you, right now.">
-      <form onSubmit={onSubmit} className="space-y-8" noValidate>
+      <form onSubmit={onSubmit} className="space-y-6" noValidate>
         {error && (
           <p role="alert" className="text-label-md font-label-md text-error bg-error-container/40 rounded-xl px-5 py-3">
             {error}
@@ -104,7 +104,7 @@ export function LoginPage() {
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
             />
-            <span className="w-5 h-5 rounded-md border border-outline-variant bg-surface flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
+            <span className="w-5 h-5 rounded-md border border-outline-variant bg-surface-container-lowest flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-colors">
               <span aria-hidden className="material-symbols-outlined text-[14px] text-on-primary opacity-0 peer-checked:opacity-100" style={{ fontVariationSettings: "'FILL'1" }}>
                 check
               </span>
@@ -139,7 +139,7 @@ export function LoginPage() {
           </span>
           <h2 className="text-label-md font-label-md text-on-background font-bold">Demo access</h2>
           <span className="text-label-sm font-label-sm text-on-surface-variant">
-            (dev only — change in production)
+            (dev only)
           </span>
         </div>
         {DEMO_ACCOUNTS.map((account) => (

@@ -87,7 +87,7 @@ export function SignupPage() {
 
   return (
     <AuthLayout subtitle="Your neighborhood, verified.">
-      <form onSubmit={onSubmit} className="space-y-8" noValidate>
+      <form onSubmit={onSubmit} className="space-y-6" noValidate>
         {error && (
           <p role="alert" className="text-label-md font-label-md text-error bg-error-container/40 rounded-xl px-5 py-3">
             {error}
@@ -106,7 +106,7 @@ export function SignupPage() {
                   "flex flex-col items-center justify-center p-5 rounded-xl border transition-all group",
                   role === r.value
                     ? "bg-primary-container border-primary shadow-sm"
-                    : "bg-surface border-outline-variant hover:bg-surface-variant",
+                    : "bg-surface-container-lowest border-outline-variant hover:bg-surface-container-low",
                 )}
               >
                 <span
@@ -161,7 +161,7 @@ export function SignupPage() {
         </Field>
 
         <Field label="Where do you live?" hint="Choose your society/locality — posts are only visible nearby.">
-          {/* City browse chips (the platform covers all of India) */}
+          {/* City browse chips */}
           <div className="flex gap-1.5 flex-wrap">
             <button
               type="button"
@@ -173,7 +173,7 @@ export function SignupPage() {
                 "px-3 py-1.5 rounded-full text-label-sm font-label-sm border transition-colors",
                 cityFilter === null
                   ? "bg-primary text-on-primary border-primary"
-                  : "bg-surface text-on-surface-variant border-outline-variant hover:bg-surface-variant",
+                  : "bg-surface-container-lowest text-on-surface-variant border-outline-variant hover:bg-surface-container-low",
               )}
             >
               All India
@@ -190,7 +190,7 @@ export function SignupPage() {
                   "px-3 py-1.5 rounded-full text-label-sm font-label-sm border transition-colors",
                   cityFilter === city
                     ? "bg-primary text-on-primary border-primary"
-                    : "bg-surface text-on-surface-variant border-outline-variant hover:bg-surface-variant",
+                    : "bg-surface-container-lowest text-on-surface-variant border-outline-variant hover:bg-surface-container-low",
                 )}
               >
                 {city}
@@ -216,7 +216,7 @@ export function SignupPage() {
                     setLocalityQuery(loc.name);
                   }}
                   className={cn(
-                    "w-full flex items-center justify-between gap-3 px-5 py-3 text-left hover:bg-surface-variant transition-colors",
+                    "w-full flex items-center justify-between gap-3 px-5 py-3 text-left hover:bg-surface-container-low transition-colors",
                     selectedLocality?.id === loc.id && "bg-primary/10",
                   )}
                 >
@@ -241,7 +241,7 @@ export function SignupPage() {
           Join your neighborhood
         </Button>
         <p className="text-center text-body-md font-body-md text-on-surface-variant">
-          Already a neighbor?{""}
+          Already a neighbor?{" "}
           <Link to="/login" className="text-primary font-semibold underline-offset-2 hover:underline">
             Sign in
           </Link>

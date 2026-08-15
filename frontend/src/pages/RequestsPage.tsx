@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Chip } from "@/components/common/Chip";
 import { EmptyState, ErrorState, LoadingState, SkeletonCard } from "@/components/common/Feedback";
@@ -13,12 +12,6 @@ import { useAuth } from "@/hooks/useAuth";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import type { RequestType } from "@/types";
 
-const TABS = [
-  { to: "/nearby", label: "Nearby" },
-  { to: "/help", label: "Help" },
-  { to: "/needs", label: "Needs" },
-];
-
 export function RequestsPage() {
   const { user } = useAuth();
   const { point, request } = useGeolocation(user?.locality);
@@ -31,7 +24,6 @@ export function RequestsPage() {
     request();
   }, [request]);
 
-  // Browsing another locality? Query around it instead of the GPS point.
   const center = view ?? point;
   const requests = useRequests(
     {
@@ -57,60 +49,36 @@ export function RequestsPage() {
   const areaName = user?.locality?.name ?? "your area";
 
   return (
-    <div className="max-w-3xl mx-auto flex flex-col gap-5">
-      {/* Module tabs */}
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mx-margin-mobile px-margin-mobile">
-        {TABS.map((tab) =>
-          tab.to === "/needs" ? (
-            <button
-              key={tab.to}
-              className="bg-primary-container text-on-primary-container rounded-full px-4 py-2 text-label-md font-label-md whitespace-nowrap transition-transform duration-150 active:scale-95 shadow-sm"
-            >
-              {tab.label}
-            </button>
-          ) : (
-            <Link
-              key={tab.to}
-              to={tab.to}
-              className="bg-surface-container-low text-on-surface-variant border border-outline-variant rounded-full px-4 py-2 text-label-md font-label-md whitespace-nowrap hover:bg-surface-variant transition-colors"
-            >
-              {tab.label}
-            </Link>
-          ),
-        )}
+    <div>
+      {/* Header + type filters */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 className="font-headline-lg font-bold text-3xl mb-2">Need It Now</h1>
+          <p className="text-on-surface-variant">Most replies come from walking distance away.</p>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <Chip label="All" active={type === "all"} onClick={() => setType("all")} />
+          {REQUEST_TYPES.map((t) => (
+            <Chip
+              key={t.value}
+              label={t.label}
+              icon={t.icon}
+              active={type === t.value}
+              onClick={() => setType(t.value === type ? "all" : t.value)}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Locality context row — browsing chip + mobile switcher */}
+      {/* Locality context */}
       <LocalityContextRow />
 
-      <div>
-        <h1 className="text-headline-lg-mobile font-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-background">
-          Need It Now
-        </h1>
-        <p className="text-body-md font-body-md text-on-surface-variant">
-          Borrow, share rides, grab spare tickets — from neighbors within walking distance.
-        </p>
-      </div>
-
-      {/* Type filters */}
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide -mx-margin-mobile px-margin-mobile">
-        <Chip label="All" active={type === "all"} onClick={() => setType("all")} />
-        {REQUEST_TYPES.map((t) => (
-          <Chip
-            key={t.value}
-            label={t.label}
-            icon={t.icon}
-            active={type === t.value}
-            onClick={() => setType(t.value === type ? "all" : t.value)}
-          />
-        ))}
-      </div>
-
-      {/* Request list */}
+      {/* Request grid */}
       {!center ? (
         <LoadingState label="Locating you…" />
       ) : requests.isLoading ? (
-        <div className="flex flex-col gap-8 mt-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <SkeletonCard />
           <SkeletonCard />
           <SkeletonCard />
         </div>
@@ -126,17 +94,17 @@ export function RequestsPage() {
               onClick={() => setComposerOpen(true)}
               className="mt-2 inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full text-label-md font-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm active:scale-95"
             >
-              <span aria-hidden className="material-symbols-outlined text-[18px]">
-                add
-              </span>
+              <span aria-hidden className="material-symbols-outlined text-[18px]">add</span>
               Post a request
             </button>
           }
         />
       ) : (
-        <div className="flex flex-col gap-8 mt-2">
-          {(requests.data ?? []).map((req) => (
-            <RequestCard key={req.id} request={req} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(requests.data ?? []).map((req, idx) => (
+            <div key={req.id} className="animate-card-stagger hover-lift" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <RequestCard request={req} />
+            </div>
           ))}
         </div>
       )}
@@ -145,11 +113,9 @@ export function RequestsPage() {
       <button
         onClick={() => setComposerOpen(true)}
         aria-label="Create a request"
-        className="fixed bottom-[88px] right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-lg flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 z-40"
+        className="fixed bottom-[88px] right-4 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-lg flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 z-40"
       >
-        <span aria-hidden className="material-symbols-outlined text-3xl">
-          add
-        </span>
+        <span aria-hidden className="material-symbols-outlined text-3xl">add</span>
       </button>
 
       <CreatePostModal

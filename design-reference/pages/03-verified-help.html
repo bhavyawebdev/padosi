@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Verified Help — LocalPulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    background:'#fcf9f4','surface-container-lowest':'#ffffff','surface-container-low':'#f6f3ee',
+    'surface-container':'#f0ede9','surface-container-high':'#ebe8e3',
+    'on-surface':'#1c1c19','on-surface-variant':'#424842',
+    outline:'#727971','outline-variant':'#c2c8bf',
+    primary:'#416448','on-primary':'#ffffff','primary-container':'#597d60','on-primary-container':'#f6fff3',
+    secondary:'#8b4e35','on-secondary':'#ffffff','secondary-container':'#fdae8f','on-secondary-container':'#783f28',
+    tertiary:'#5f5b56'
+  },
+  fontFamily:{display:['"Be Vietnam Pro"','sans-serif'],body:['Manrope','sans-serif']},
+  borderRadius:{xl2:'1.5rem'}
+}}}
+</script>
+<style>
+  body{font-family:'Manrope',sans-serif;background:#fcf9f4;color:#1c1c19}
+  h1,h2,h3,.font-display{font-family:'Be Vietnam Pro',sans-serif}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-outline-variant/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <span class="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
+      <span class="font-display font-bold text-xl">Local<span class="text-primary">Pulse</span></span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Nearby Right Now</a>
+      <a class="text-primary border-b-2 border-primary pb-1" href="#">Verified Help</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Need It Now</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button class="bg-primary text-on-primary text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-primary-container transition-colors">List your service</button>
+      <div class="w-10 h-10 rounded-full bg-secondary-container border border-outline-variant/40"></div>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+  <h1 class="font-display font-bold text-3xl mb-2">Verified Help</h1>
+  <p class="text-on-surface-variant mb-8">Trusted recommendations from neighbors in Pali Hill, Bandra West.</p>
+
+  <div class="flex flex-col sm:flex-row gap-4 mb-8">
+    <div class="relative flex-1">
+      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+      <input class="w-full bg-white border border-outline-variant/60 rounded-full pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" placeholder="Search cook, maid, tutor, plumber..." type="text"/>
+    </div>
+    <label class="flex items-center gap-2 bg-white border border-outline-variant/60 rounded-full px-4 py-3 text-sm font-medium cursor-pointer">
+      <input checked class="rounded text-primary focus:ring-primary" type="checkbox"/> Verified only
+    </label>
+  </div>
+
+  <div class="flex flex-wrap gap-2.5 mb-10">
+    <button class="bg-primary text-on-primary text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-1.5">🍳 Cook</button>
+    <button class="bg-white border border-outline-variant/60 text-sm font-medium px-4 py-2 rounded-full hover:bg-surface-container-low">🧹 Maid</button>
+    <button class="bg-white border border-outline-variant/60 text-sm font-medium px-4 py-2 rounded-full hover:bg-surface-container-low">🎓 Tutor</button>
+    <button class="bg-white border border-outline-variant/60 text-sm font-medium px-4 py-2 rounded-full hover:bg-surface-container-low">🔧 Plumber</button>
+    <button class="bg-white border border-outline-variant/60 text-sm font-medium px-4 py-2 rounded-full hover:bg-surface-container-low">🐕 Dog Walker</button>
+    <button class="bg-white border border-outline-variant/60 text-sm font-medium px-4 py-2 rounded-full hover:bg-surface-container-low">⚡ Electrician</button>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+      <div class="flex items-start justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 rounded-full bg-primary-container"></div>
+          <div>
+            <p class="font-display font-bold">Sita Bai</p>
+            <p class="text-xs text-on-surface-variant">Expert Cook · North & South Indian</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 text-sm font-semibold text-secondary">
+          <span class="material-symbols-outlined text-base">star</span> 4.9
+        </div>
+      </div>
+      <span class="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+        <span class="material-symbols-outlined text-sm">verified</span> Verified by 12 neighbors
+      </span>
+      <div class="flex gap-2.5">
+        <button class="flex-1 bg-primary text-on-primary text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">call</span> Call</button>
+        <button class="flex-1 border border-outline-variant text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">chat</span> Message</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+      <div class="flex items-start justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 rounded-full bg-secondary-container"></div>
+          <div>
+            <p class="font-display font-bold">Meera</p>
+            <p class="text-xs text-on-surface-variant">Math & Science Tutor · Grades 6–10</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 text-sm font-semibold text-secondary">
+          <span class="material-symbols-outlined text-base">star</span> 4.7
+        </div>
+      </div>
+      <span class="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+        <span class="material-symbols-outlined text-sm">verified</span> Verified by 8 neighbors
+      </span>
+      <div class="flex gap-2.5">
+        <button class="flex-1 bg-primary text-on-primary text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">call</span> Call</button>
+        <button class="flex-1 border border-outline-variant text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">chat</span> Message</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+      <div class="flex items-start justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-14 h-14 rounded-full bg-surface-container-high"></div>
+          <div>
+            <p class="font-display font-bold">Lakshmi</p>
+            <p class="text-xs text-on-surface-variant">Deep Cleaning · Daily Maid Services</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 text-sm font-semibold text-secondary">
+          <span class="material-symbols-outlined text-base">star</span> 5.0
+        </div>
+      </div>
+      <span class="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+        <span class="material-symbols-outlined text-sm">verified</span> Verified by 24 neighbors
+      </span>
+      <div class="flex gap-2.5">
+        <button class="flex-1 bg-primary text-on-primary text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">call</span> Call</button>
+        <button class="flex-1 border border-outline-variant text-sm font-semibold py-2.5 rounded-full flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-lg">chat</span> Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

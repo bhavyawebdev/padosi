@@ -51,7 +51,7 @@ export function ForgotPasswordPage() {
   return (
     <AuthLayout subtitle="Security & access">
       {/* Mode tabs */}
-      <div className="flex gap-1.5 bg-surface-container-lowest border border-outline-variant rounded-full p-1">
+      <div className="flex gap-1.5 bg-surface-container-low border border-outline-variant rounded-full p-1 mb-6">
         {(
           [
             { value: "reset", label: "Reset password" },
@@ -178,7 +178,7 @@ export function ForgotPasswordPage() {
         </form>
       )}
 
-      <p className="text-center text-body-md font-body-md text-on-surface-variant">
+      <p className="text-center text-body-md font-body-md text-on-surface-variant mt-6">
         Remembered it?{" "}
         <Link to="/login" className="text-primary font-semibold underline-offset-2 hover:underline">
           Sign in

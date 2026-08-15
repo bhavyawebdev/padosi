@@ -23,11 +23,11 @@ export function AppLayout() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-on-background font-body-md text-body-md pt-[calc(64px+env(safe-area-inset-top))] pb-28 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-background text-on-background">
       <AppHeader />
       <main
         key={location.pathname}
-        className="flex-grow w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-5 animate-fade-in"
+        className="flex-grow w-full max-w-7xl mx-auto px-6 lg:px-10 py-10 animate-fade-in"
       >
         <Outlet />
       </main>

@@ -3,6 +3,9 @@
    Applied when <html class="dark"> (user/system preference, persisted).
    Utilities resolve var(--color-*) at use-site, so overriding the custom
    properties here retints the whole app without touching components.
+
+   NOTE: The new pages (landing, auth, updated layouts) use bg-white for
+   cards. In dark mode these need to be overridden to use dark surfaces.
    ========================================================================== */
 .dark {
   color-scheme: dark;
@@ -70,4 +73,83 @@
   /* Paper shadows get deeper in dark — keep subtle. */
   --shadow-paper: 0 4px 12px rgba(0, 0, 0, 0.45);
   --shadow-paper-lg: 0 8px 24px rgba(0, 0, 0, 0.55);
+}
+
+/* ==========================================================================
+   Dark mode overrides for components that use hardcoded bg-white
+   (landing page cards, auth cards, profile cards, etc.)
+   ========================================================================== */
+.dark .bg-white {
+  background-color: var(--color-surface-container) !important;
+}
+
+/* Landing page card backgrounds */
+.dark .bg-surface-container-low {
+  background-color: var(--color-surface-container-low) !important;
+}
+
+/* Auth header and footer */
+.dark .bg-surface-container-low {
+  background-color: var(--color-surface-container-low) !important;
+}
+
+/* Card borders in dark mode — softer */
+.dark .border-outline-variant\/40,
+.dark .border-outline-variant\/60 {
+  border-color: var(--color-outline-variant) !important;
+}
+
+/* Landing page hero cards */
+.dark .shadow-xl {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Hover lift effect in dark mode */
+.dark .hover-lift:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header backdrop in dark mode */
+.dark .bg-background\/90 {
+  background-color: rgba(20, 22, 18, 0.92) !important;
+}
+
+/* Auth card shadow in dark mode */
+.dark .shadow-xl {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Checkbox and input backgrounds */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="tel"] {
+  background-color: var(--color-surface-container-high);
+  border-color: var(--color-outline-variant);
+  color: var(--color-on-surface);
+}
+
+/* Search input in dark mode */
+.dark .bg-surface-container-highest {
+  background-color: var(--color-surface-container-highest) !important;
+}
+
+/* Verified badge styling */
+.dark .bg-primary\/10 {
+  background-color: rgba(170, 208, 174, 0.1) !important;
+}
+
+/* Secondary container in dark mode */
+.dark .bg-secondary\/10 {
+  background-color: rgba(255, 181, 153, 0.1) !important;
+}
+
+/* Tertiary container in dark mode */
+.dark .bg-tertiary\/15 {
+  background-color: rgba(204, 197, 191, 0.15) !important;
+}
+
+/* Primary container in dark mode */
+.dark .bg-primary\/15 {
+  background-color: rgba(170, 208, 174, 0.15) !important;
 }
