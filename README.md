@@ -110,6 +110,62 @@ All share the password `password123`:
 - **Privacy controls in the profile** — change password (signs out other devices), "recent sign-ins" audit list, "sign out all other devices", and a "keep me signed in" toggle on login (session-only storage when off).
 - **Show/hide password + live strength meter** on every password field (login, signup, reset, change).
 
+## Deployment
+
+This repository contains two frontends. Decide which one you are deploying:
+
+### 1. Supabase SPA (repo root) — deploy to Vercel
+
+The Vite app at the **repo root** (`src/`, `package.json`) is a self-contained
+SPA backed by **Supabase** (auth, Postgres, storage). It deploys directly to
+Vercel as a static site — no server needed.
+
+- **Framework preset:** Vite (auto-detected)
+- **Build command:** `npm run build` (runs `tsc -b && vite build`)
+- **Output directory:** `dist`
+- **SPA routing:** `vercel.json` rewrites all paths to `/index.html`, so direct
+  navigation to `/login`, `/nearby`, `/help`, `/admin`, etc. never 404s.
+- **Environment variables** (set in Vercel → Project → Settings → Environment
+  Variables):
+  - `VITE_SUPABASE_URL` — Supabase project URL
+  - `VITE_SUPABASE_ANON_KEY` — Supabase anon/publishable key (browser-safe)
+
+> `VITE_*` vars are inlined at build time — set them **before** the build runs
+> (or trigger a redeploy after adding them). The anon key is safe to ship to
+> the browser; never expose the `service_role` key (it is only used by
+> `scripts/seed-supabase.mjs` via `SUPABASE_SERVICE_ROLE_KEY`, dev-only).
+
+### 2. FastAPI full-stack app (`frontend/` + `backend/`) — host the backend separately
+
+The `frontend/` app talks to the FastAPI backend (`backend/`) over REST
+(`/api/v1`) and WebSocket (`/ws`). The backend needs **PostgreSQL + PostGIS**,
+**Redis** (cache / Celery broker / WS pub-sub) and **Celery** workers — this
+stack **cannot run on Vercel serverless**. Deploy the backend on a platform
+with persistent processes (Render, Railway, Fly.io, a VPS, or the included
+`docker-compose.prod.yml`) and host the SPA on Vercel with:
+
+- **Build command:** `npm run build` (run inside `frontend/`)
+- **Output directory:** `frontend/dist`
+- **Environment variable:** `VITE_API_URL` — the deployed backend's API base,
+  e.g. `https://api.example.com/api/v1` (defaults to `/api/v1`, same-origin).
+
+Backend requirements (`backend/.env.prod.example`):
+
+| Variable | Purpose |
+|---|---|
+| `APP_ENV` | `production` disables dev conveniences (seed data) |
+| `DATABASE_URL` | `postgresql+asyncpg://…` Postgres with **PostGIS** extension |
+| `REDIS_URL` | Redis instance (cache, Celery broker, WS pub-sub) |
+| `JWT_SECRET` | **Set a long random value in production** |
+| `CORS_ORIGINS` | Must include the SPA origin, e.g. `https://yourapp.vercel.app` |
+| `SEED_DEMO_DATA` | `false` in production |
+
+Run migrations before first start: `alembic upgrade head`, then launch
+`uvicorn app.main:app` plus the Celery worker/beat (see `docs/ARCHITECTURE.md`).
+The live-feed WebSocket connects to the **same host** as the SPA
+(`<origin>/ws/feed`), so route `/ws` to the backend via a reverse proxy
+(nginx/gateway) or disable realtime (feed still works via polling).
+
 ## Engineering standards (non-negotiable)
 
 1. TypeScript strict; Pydantic v2 on every endpoint — no `any`, no raw dicts.
