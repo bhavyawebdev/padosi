@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Arjun K. — LocalPulse Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    background:'#fcf9f4','surface-container-lowest':'#ffffff','surface-container-low':'#f6f3ee',
+    'surface-container':'#f0ede9','surface-container-high':'#ebe8e3',
+    'on-surface':'#1c1c19','on-surface-variant':'#424842',
+    outline:'#727971','outline-variant':'#c2c8bf',
+    primary:'#416448','on-primary':'#ffffff','primary-container':'#597d60','on-primary-container':'#f6fff3',
+    secondary:'#8b4e35','on-secondary':'#ffffff','secondary-container':'#fdae8f','on-secondary-container':'#783f28',
+    tertiary:'#5f5b56'
+  },
+  fontFamily:{display:['"Be Vietnam Pro"','sans-serif'],body:['Manrope','sans-serif']},
+  borderRadius:{xl2:'1.5rem'}
+}}}
+</script>
+<style>
+  body{font-family:'Manrope',sans-serif;background:#fcf9f4;color:#1c1c19}
+  h1,h2,h3,.font-display{font-family:'Be Vietnam Pro',sans-serif}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-outline-variant/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <span class="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
+      <span class="font-display font-bold text-xl">Local<span class="text-primary">Pulse</span></span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-on-surface-variant">
+      <a class="hover:text-primary transition-colors" href="#">Nearby Right Now</a>
+      <a class="hover:text-primary transition-colors" href="#">Verified Help</a>
+      <a class="hover:text-primary transition-colors" href="#">Need It Now</a>
+    </nav>
+    <div class="w-10 h-10 rounded-full bg-primary-container border-2 border-primary"></div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10 grid lg:grid-cols-[320px_1fr] gap-8">
+
+  <!-- LEFT profile card -->
+  <aside class="space-y-6">
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6 text-center">
+      <div class="w-24 h-24 rounded-full bg-primary-container mx-auto mb-4 border-4 border-surface-container-low"></div>
+      <h1 class="font-display font-bold text-xl">Arjun K.</h1>
+      <p class="text-sm text-on-surface-variant flex items-center justify-center gap-1 mt-1">
+        <span class="material-symbols-outlined text-base">location_on</span> Pali Hill
+      </p>
+      <span class="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mt-3">
+        <span class="material-symbols-outlined text-sm">verified</span> Verified Resident
+      </span>
+      <button class="w-full mt-5 border border-outline-variant text-sm font-semibold py-2.5 rounded-full hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1.5">
+        <span class="material-symbols-outlined text-lg">edit</span> Edit Profile
+      </button>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl2 border border-outline-variant/40 p-5 text-center">
+        <p class="text-3xl font-display font-bold">12</p>
+        <p class="text-xs text-on-surface-variant mt-1">Helps Given</p>
+      </div>
+      <div class="bg-white rounded-xl2 border border-outline-variant/40 p-5 text-center">
+        <p class="text-3xl font-display font-bold">4</p>
+        <p class="text-xs text-on-surface-variant mt-1">Recommendations</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+      <p class="font-display font-bold mb-4">Badges</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-surface-container-low text-xs font-semibold px-3 py-1.5 rounded-full border border-outline-variant/40">🌱 Plant Whisperer</span>
+        <span class="bg-surface-container-low text-xs font-semibold px-3 py-1.5 rounded-full border border-outline-variant/40">🐾 Dog Walker</span>
+        <span class="bg-surface-container-low text-xs font-semibold px-3 py-1.5 rounded-full border border-outline-variant/40">✨ Early Adopter</span>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6">
+      <p class="font-display font-bold mb-3">About</p>
+      <p class="text-sm text-on-surface-variant leading-relaxed">Hi neighbors! I've been living in Pali Hill for 3 years. Always happy to help water plants when you're away or grab groceries for those in a pinch. Love community gardening.</p>
+    </div>
+  </aside>
+
+  <!-- RIGHT activity -->
+  <main>
+    <h2 class="font-display font-bold text-xl mb-6">Recent Activity</h2>
+    <div class="space-y-4">
+      <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-primary">volunteer_activism</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-1">
+            <p class="font-semibold text-sm">Helped with Groceries</p>
+            <p class="text-xs text-on-surface-variant">2 days ago</p>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Picked up essential supplies for Mrs. Sharma down the street during the heavy rains.</p>
+          <span class="inline-block mt-2 text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Help Given</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-secondary">handyman</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-1">
+            <p class="font-semibold text-sm">Posted in Needs</p>
+            <p class="text-xs text-on-surface-variant">1 week ago</p>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Looking to borrow a small drill for the weekend to hang some planters. Will return promptly!</p>
+          <div class="flex gap-2 mt-2">
+            <span class="inline-block text-xs font-semibold bg-surface-container text-on-surface-variant px-2.5 py-1 rounded-full">Need Requested</span>
+            <span class="inline-block text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Resolved</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl2 border border-outline-variant/40 p-6 flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-tertiary">forum</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-1">
+            <p class="font-semibold text-sm">Recommended a local business</p>
+            <p class="text-xs text-on-surface-variant">2 weeks ago</p>
+          </div>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Shoutout to 'Green Leaf Bakery' on Main St. Their sourdough is amazing and they always use local ingredients.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+</body></html>

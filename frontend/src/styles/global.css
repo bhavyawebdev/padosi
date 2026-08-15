@@ -1,0 +1,191 @@
+@import "./theme.css";
+@import "./dark.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-body-md);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Warm, recessed focus rings that respect the paper palette */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Warm text-selection tint (matches the paper palette) */
+::selection {
+  background-color: var(--color-primary-fixed-dim);
+  color: var(--color-on-primary-fixed);
+}
+
+/* Leaflet needs its own stacking context so its panes (z 400–700) never
+   paint over the fixed header / chat widget. */
+.leaflet-container {
+  z-index: 0;
+  font-family: var(--font-body-md);
+}
+
+/* Thin warm scrollbar (from screen 03) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-outline-variant);
+  border-radius: 9999px;
+}
+
+/* Hide scrollbar for chip rows (from screens 01/02) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*
+ * Notched-phone (iPhone) safe areas. `viewport-fit=cover` lets the app bleed
+ * under the notch / home indicator; these utilities keep chrome clear of it.
+ * Un-layered on purpose so they win over Tailwind's layered padding utilities.
+ */
+.safe-top {
+  padding-top: calc(env(safe-area-inset-top) + 0.5rem);
+}
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
+}
+
+/* ==========================================================================
+   Animations & transitions — warm, tactile feel matching the design reference
+   ========================================================================== */
+
+/* Card entrance animation (slide up + fade) */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Staggered card entrance for lists */
+@keyframes card-stagger {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gentle pulse for loading states */
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Slide in from right for modals/drawers */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale up for popovers/floating elements */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility classes for animations */
+.animate-card-enter {
+  animation: card-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-card-stagger {
+  animation: card-stagger 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hover lift effect for cards */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 218, 213, 0.35);
+}
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* Focus ring animation */
+@keyframes focus-ring {
+  from {
+    box-shadow: 0 0 0 0 rgba(65, 100, 72, 0.4);
+  }
+  to {
+    box-shadow: 0 0 0 4px rgba(65, 100, 72, 0);
+  }
+}
+
+.animate-focus-ring {
+  animation: focus-ring 0.3s ease-out;
+}
+
+/* Header backdrop blur enhancement */
+.header-blur {
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+}

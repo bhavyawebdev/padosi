@@ -1,0 +1,173 @@
+/* ==========================================================================
+   LocalPulse design tokens — extracted verbatim from
+   design-reference/DESIGN_SYSTEM.md (single source of truth, generated
+   consistently across all five Stitch screens). Do not approximate hex values.
+   ========================================================================== */
+@import "tailwindcss";
+
+/* Class-based dark mode: `.dark` on <html> enables `dark:` variants. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ---- Colors (Material 3 tonal set, warm paper palette) ---- */
+  --color-surface: #fcf9f4;
+  --color-surface-dim: #dcdad5;
+  --color-surface-bright: #fcf9f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3ee;
+  --color-surface-container: #f0ede9;
+  --color-surface-container-high: #ebe8e3;
+  --color-surface-container-highest: #e5e2dd;
+  --color-on-surface: #1c1c19;
+  --color-on-surface-variant: #424842;
+  --color-inverse-surface: #31302d;
+  --color-inverse-on-surface: #f3f0eb;
+  --color-outline: #727971;
+  --color-outline-variant: #c2c8bf;
+  --color-surface-tint: #44664b;
+
+  --color-primary: #416448;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #597d60;
+  --color-on-primary-container: #f6fff3;
+  --color-inverse-primary: #aad0ae;
+  --color-primary-fixed: #c5ecc9;
+  --color-primary-fixed-dim: #aad0ae;
+  --color-on-primary-fixed: #00210c;
+  --color-on-primary-fixed-variant: #2c4e34;
+
+  --color-secondary: #8b4e35;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdae8f;
+  --color-on-secondary-container: #783f28;
+  --color-secondary-fixed: #ffdbce;
+  --color-secondary-fixed-dim: #ffb599;
+  --color-on-secondary-fixed: #370e00;
+  --color-on-secondary-fixed-variant: #6e3820;
+
+  --color-tertiary: #5f5b56;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #78746f;
+  --color-on-tertiary-container: #fffbff;
+  --color-tertiary-fixed: #e8e1db;
+  --color-tertiary-fixed-dim: #ccc5bf;
+  --color-on-tertiary-fixed: #1e1b17;
+  --color-on-tertiary-fixed-variant: #4a4642;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-background: #fcf9f4;
+  --color-on-background: #1c1c19;
+  --color-surface-variant: #e5e2dd;
+
+  /* ---- Typography: Be Vietnam Pro (headings) + Manrope (body/labels) ---- */
+  --font-headline-xl: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-headline-lg: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-headline-lg-mobile: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-headline-md: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-body-lg: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label-md: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label-sm: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --text-headline-xl: 40px;
+  --text-headline-xl--line-height: 48px;
+  --text-headline-xl--font-weight: 700;
+  --text-headline-xl--letter-spacing: -0.02em;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-lg--letter-spacing: -0.01em;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 34px;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--font-weight: 600;
+  --text-label-md--letter-spacing: 0.01em;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--font-weight: 500;
+
+  /* ---- Spacing (4px baseline, generous rhythm) ----
+     NOTE: never define --spacing-<sm|md|lg|xl> here. Tailwind v4 merges the
+     container scale with the spacing scale and the spacing side wins on
+     name collisions, so tokens named like the container scale shadow it
+     and `max-w-md` collapses to 20px. Semantic sizes therefore     use Tailwind's native numeric scale (xs=2, sm=3, md=5, lg=8, xl=12, values
+     identical to the removed 8/12/20/32/48px tokens). This mapping is exact
+     while the spacing base is 4px (--spacing-base: 4px below / Tailwind's
+     default 0.25rem at a 16px root). Only non-colliding names are kept. */
+  --spacing-base: 4px;
+  --spacing-gutter: 20px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+
+  /* ---- Elevation: paper shadows (darkened background tone, never black) ---- */
+  --shadow-paper: 0 4px 12px rgba(220, 218, 213, 0.5);
+  --shadow-paper-lg: 0 8px 24px rgba(220, 218, 213, 0.55);
+
+  /* ---- Motion (screen 03 modal entrance) ---- */
+  --animate-slide-up: slide-up 0.3s ease-out;
+  --animate-fade-in: fade-in 0.25s ease-out;
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Material Symbols rendering defaults (matches screen markup) */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
