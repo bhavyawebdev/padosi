@@ -1,0 +1,32 @@
+{
+  "name": "LocalPulse",
+  "short_name": "LocalPulse",
+  "description": "What's happening near you, right now — a hyperlocal community platform.",
+  "id": "/nearby",
+  "start_url": "/nearby",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fcf9f4",
+  "theme_color": "#416448",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
