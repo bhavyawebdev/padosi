@@ -8,7 +8,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
-            <span className="font-headline-lg font-bold text-xl">Local<span className="text-primary">Pulse</span></span>
+            <span className="font-headline-lg font-bold text-xl"><span className="text-primary">Padosi</span></span>
           </div>
           <nav className="hidden md:flex items-center gap-9 font-medium text-sm text-on-surface-variant">
             <a className="hover:text-primary transition-colors" href="#nearby">Nearby Right Now</a>
