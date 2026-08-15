@@ -11,7 +11,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    APP_NAME: str = "LocalPulse API"
+    APP_NAME: str = "Padosi API"
     APP_ENV: str = "development"
     API_V1_PREFIX: str = "/api/v1"
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]

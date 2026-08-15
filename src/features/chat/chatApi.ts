@@ -1,10 +1,10 @@
 /**
- * LocalPulse assistant — a friendly, data-aware helper.
+ * Padosi assistant — a friendly, data-aware helper.
  *
  * Ported from the old FastAPI /chat endpoint into the browser. No external AI
  * provider or secret is needed: the assistant answers from the platform's own
  * data (providers, live posts, open requests near the user) plus a small
- * knowledge base about how LocalPulse works.
+ * knowledge base about how Padosi works.
  */
 import { fetchProviders } from "@/features/directory/directoryApi";
 import { fetchFeed } from "@/features/feed/feedApi";
@@ -147,7 +147,7 @@ export async function askAssistant(message: string, lat?: number, lng?: number):
 
   if (isGreeting(text)) {
     return {
-      reply: `Namaste! 👋 I'm the LocalPulse helper. I can find **providers nearby**, show you **what's happening right now**, surface **open requests**, or explain how anything works. What do you need?`,
+      reply: `Namaste! 👋 I'm the Padosi helper. I can find **providers nearby**, show you **what's happening right now**, surface **open requests**, or explain how anything works. What do you need?`,
       suggestions: ["Find a plumber near me", "What's happening nearby?", "Borrow a ladder nearby"],
     };
   }

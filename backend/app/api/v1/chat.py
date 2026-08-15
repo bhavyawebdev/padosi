@@ -1,8 +1,8 @@
-"""LocalPulse assistant — a friendly, data-aware helper.
+"""Padosi assistant — a friendly, data-aware helper.
 
 No external AI provider or API key is required: the assistant answers from
 the platform's own data (providers, live posts and open requests near the
-user) plus a small knowledge base about how LocalPulse works. If an OpenAI-
+user) plus a small knowledge base about how Padosi works. If an OpenAI-
 style provider is added later, this module is the single place to swap in a
 real LLM behind the same request/response contract.
 """
@@ -203,7 +203,7 @@ async def chat(
     if _greeting(text):
         return ChatResponse(
             reply=(
-                f"Namaste{', ' + user.full_name if user else ''}! 👋 I'm the LocalPulse helper. "
+                f"Namaste{', ' + user.full_name if user else ''}! 👋 I'm the Padosi helper. "
                 "I can find **providers nearby**, show you **what's happening right now**, surface **open "
                 "requests**, or explain how anything works. What do you need?"
             ),

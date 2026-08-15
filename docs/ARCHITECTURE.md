@@ -1,6 +1,6 @@
-# LocalPulse — Architecture
+# Padosi — Architecture
 
-> Rebrandable: "LocalPulse" is a working name; it appears only in branding/config,
+> Rebrandable: "Padosi" is a working name; it appears only in branding/config,
 > never in feature logic.
 
 ## 1. System overview

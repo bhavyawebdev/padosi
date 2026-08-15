@@ -31,7 +31,7 @@ export function AppHeader() {
     <header className="safe-top sticky top-0 z-40 bg-background/90 backdrop-blur border-b border-outline-variant/40 header-blur">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between gap-2">
         {/* Logo */}
-        <Link to="/nearby" aria-label="LocalPulse home" className="flex items-center gap-2.5 shrink-0">
+        <Link to="/nearby" aria-label="Padosi home" className="flex items-center gap-2.5 shrink-0">
           <span className="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
           <span className="font-headline-lg font-bold text-xl">Local<span className="text-primary">Pulse</span></span>
         </Link>

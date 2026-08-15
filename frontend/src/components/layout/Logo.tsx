@@ -1,5 +1,5 @@
 /**
- * LocalPulse logo — inline SVG recolored to the canonical palette primary
+ * Padosi logo — inline SVG recolored to the canonical palette primary
  * (#416448) so the mark is pixel-consistent with the UI. The original Stitch
  * assets used a slightly different green; per the brief, the UI palette wins.
  * House + pulse motif. Clear space respected via the padded viewBox.
@@ -19,7 +19,7 @@ export function LogoMark({ className }: { className?: string }) {
     <svg
       viewBox="0 0 32 32"
       role="img"
-      aria-label="LocalPulse"
+      aria-label="Padosi"
       className={cn("h-7 w-7", className)}
       fill="none"
     >
@@ -51,7 +51,7 @@ export function Logo({ withWordmark = true, dark = false, className }: LogoProps
     >
       <LogoMark />
       {withWordmark && (
-        <span className="font-headline-md text-headline-md font-bold tracking-tight">LocalPulse</span>
+        <span className="font-headline-md text-headline-md font-bold tracking-tight">Padosi</span>
       )}
     </span>
   );

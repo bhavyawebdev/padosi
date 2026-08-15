@@ -54,7 +54,7 @@ export function AdminLoginPage() {
           <Logo dark />
           <div>
             <p className="text-label-md font-label-md font-bold leading-tight">Admin Portal</p>
-            <p className="text-label-sm font-label-sm text-on-primary/80">LocalPulse platform console</p>
+            <p className="text-label-sm font-label-sm text-on-primary/80">Padosi platform console</p>
           </div>
         </div>
       </header>
@@ -118,7 +118,7 @@ export function AdminLoginPage() {
       </main>
 
       <footer className="border-t border-outline-variant/40 bg-surface-container-low py-6 text-center text-xs text-on-surface-variant">
-        © 2026 LocalPulse · Admin Portal
+        © 2026 Padosi · Admin Portal
       </footer>
     </div>
   );

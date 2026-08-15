@@ -1,10 +1,10 @@
-# LocalPulse
+# Padosi
 
 A hyperlocal community platform connecting individuals, local businesses, and residential
 communities. Every feature answers one question: *"Is this happening near me, right now, and
 can I trust it?"*
 
-> **Rebrandable:** "LocalPulse" is a working name. It appears only in branding/config files,
+> **Rebrandable:** "Padosi" is a working name. It appears only in branding/config files,
 > never in feature logic.
 
 ## Features

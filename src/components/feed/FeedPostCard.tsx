@@ -25,7 +25,7 @@ export function FeedPostCard({ post }: { post: FeedPost }) {
 
   const share = async () => {
     const result = await shareContent({
-      title: "LocalPulse",
+      title: "Padosi",
       text: post.text,
       url: `/posts/${post.id}`,
     });

@@ -163,7 +163,7 @@ export function LandingPage() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="material-symbols-outlined text-primary text-2xl">monitor_heart</span>
-              <span className="font-headline-lg font-bold">LocalPulse</span>
+              <span className="font-headline-lg font-bold">Padosi</span>
             </div>
             <p className="text-sm text-on-surface-variant">Built for neighborhoods, not newsfeeds.</p>
           </div>
@@ -192,7 +192,7 @@ export function LandingPage() {
           </div>
         </div>
         <div className="border-t border-outline-variant/40 py-6 text-center text-xs text-on-surface-variant">
-          © 2026 LocalPulse. Made for your street.
+          © 2026 Padosi. Made for your street.
         </div>
       </footer>
     </div>

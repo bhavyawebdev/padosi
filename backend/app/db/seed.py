@@ -146,7 +146,7 @@ DEMO_USERS = [
     ("demo@localpulse.dev", "Demo Resident", "individual", "Bandra West", "9999000011"),
     ("provider@localpulse.dev", "Ramesh Kumar", "business", "Bandra West", "9999000022"),
     ("society@localpulse.dev", "Carter Road RWA", "community", "Bandra West", "9999000033"),
-    ("admin@localpulse.dev", "LocalPulse Admin", "admin", "Bandra West", "9999000099"),
+    ("admin@localpulse.dev", "Padosi Admin", "admin", "Bandra West", "9999000099"),
 ]
 
 # All demo accounts share this password (dev only).

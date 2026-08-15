@@ -1,6 +1,6 @@
 {
-  "name": "LocalPulse",
-  "short_name": "LocalPulse",
+  "name": "Padosi",
+  "short_name": "Padosi",
   "description": "What's happening near you, right now — a hyperlocal community platform.",
   "id": "/nearby",
   "start_url": "/nearby",

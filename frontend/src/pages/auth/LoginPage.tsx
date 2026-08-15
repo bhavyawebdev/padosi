@@ -124,7 +124,7 @@ export function LoginPage() {
         </Button>
 
         <p className="text-center text-body-md font-body-md text-on-surface-variant">
-          New to LocalPulse?{" "}
+          New to Padosi?{" "}
           <Link to="/signup" className="text-primary font-semibold underline-offset-2 hover:underline">
             Join your neighborhood
           </Link>

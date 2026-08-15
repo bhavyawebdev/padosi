@@ -35,7 +35,7 @@ export function AuthLayout({ children, subtitle }: { children: ReactNode; subtit
             <div className="flex justify-center mb-3 animate-scale-in">
               <span className="material-symbols-outlined text-primary text-4xl">monitor_heart</span>
             </div>
-            <h1 className="font-headline-lg font-bold text-2xl text-on-background animate-fade-in" style={{ animationDelay: "0.1s" }}>LocalPulse</h1>
+            <h1 className="font-headline-lg font-bold text-2xl text-on-background animate-fade-in" style={{ animationDelay: "0.1s" }}>Padosi</h1>
             {subtitle && (
               <p className="text-body-md font-body-md text-on-surface-variant mt-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>{subtitle}</p>
             )}
@@ -48,7 +48,7 @@ export function AuthLayout({ children, subtitle }: { children: ReactNode; subtit
 
       {/* Footer */}
       <footer className="border-t border-outline-variant/40 bg-surface-container-low py-6 text-center text-xs text-on-surface-variant">
-        © 2026 LocalPulse. Made for your street.
+        © 2026 Padosi. Made for your street.
       </footer>
     </div>
   );

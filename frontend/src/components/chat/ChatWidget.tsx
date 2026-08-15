@@ -12,7 +12,7 @@ interface ChatTurn {
 const HISTORY_KEY = "lp_chat_history";
 const WELCOME: ChatTurn = {
   role: "assistant",
-  text: "Namaste! 👋 I'm the LocalPulse helper. Ask me to find a provider, see what's happening nearby, or explain how anything works.",
+  text: "Namaste! 👋 I'm the Padosi helper. Ask me to find a provider, see what's happening nearby, or explain how anything works.",
 };
 
 function loadHistory(): ChatTurn[] {
@@ -145,7 +145,7 @@ export function ChatWidget() {
       {open && (
         <div
           role="dialog"
-          aria-label="LocalPulse assistant"
+          aria-label="Padosi assistant"
           className="fixed z-40 bottom-[116px] right-3 left-3 sm:left-auto sm:right-6 sm:w-[380px] max-h-[62vh] md:max-h-[560px] bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-2xl flex flex-col overflow-hidden animate-slide-up"
           style={{ maxWidth: "calc(100vw - 24px)" }}
         >
@@ -156,7 +156,7 @@ export function ChatWidget() {
               </span>
             </span>
             <div className="min-w-0">
-              <h2 className="text-label-md font-label-md font-bold">LocalPulse helper</h2>
+              <h2 className="text-label-md font-label-md font-bold">Padosi helper</h2>
               <p className="text-label-sm font-label-sm text-on-primary/80 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 inline-block" />
                 Online — knows your area

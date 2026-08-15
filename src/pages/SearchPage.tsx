@@ -67,7 +67,7 @@ export function SearchPage() {
 
       <form onSubmit={submit} role="search" className="flex gap-2">
         <label htmlFor="search-q" className="sr-only">
-          Search LocalPulse
+          Search Padosi
         </label>
         <div className="relative flex-1">
           <span

@@ -1,5 +1,5 @@
 /**
- * LocalPulse — dev seed for Supabase.
+ * Padosi — dev seed for Supabase.
  *
  * Creates demo auth users (via the admin API) and demo content (posts,
  * requests, providers, a DM thread, a booking). Requires:
@@ -47,7 +47,7 @@ const DEMO_USERS = [
   { email: "demo@localpulse.dev", full_name: "Demo Resident", role: "individual", phone: "9999000011" },
   { email: "provider@localpulse.dev", full_name: "Ramesh Kumar", role: "business", phone: "9999000022" },
   { email: "society@localpulse.dev", full_name: "Carter Road RWA", role: "community", phone: "9999000033" },
-  { email: "admin@localpulse.dev", full_name: "LocalPulse Admin", role: "admin", phone: "9999000099" },
+  { email: "admin@localpulse.dev", full_name: "Padosi Admin", role: "admin", phone: "9999000099" },
   // Requested default admin — admin@gmail.com / admin@1234 (dev only).
   { email: "admin@gmail.com", full_name: "Admin User", role: "admin", phone: "9999000001", password: "admin@1234" },
   // Extra neighbours so reviews/replies come from distinct people.

@@ -1,4 +1,4 @@
-"""Generate LocalPulse PWA icons (pure stdlib — no Pillow needed).
+"""Generate Padosi PWA icons (pure stdlib — no Pillow needed).
 
 Draws the logo mark (house + pulse) on the canonical primary green #416448.
 Sizes: 192, 512 (any), 512 maskable (full-bleed), 180 (apple touch).

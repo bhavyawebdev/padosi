@@ -1,4 +1,4 @@
-/* LocalPulse service worker — network-first, cache fallback.
+/* Padosi service worker — network-first, cache fallback.
    Registered only in production builds (see src/main.tsx), so it never
    interferes with the Vite dev server. Bump CACHE when deploying a new
    build so stale entries are purged on activate. */
@@ -6,7 +6,7 @@
 // first load while fully offline won't work — network-first + cache-after-load
 // only helps repeat visits. Acceptable for this scope; add cache.addAll()
 // in the install handler if true offline-first is ever required.
-const CACHE = "localpulse-v2";
+const CACHE = "padosi-v2";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -18,7 +18,7 @@ self.addEventListener("activate", (event) => {
       const keys = await caches.keys();
       await Promise.all(
         keys
-          .filter((key) => key.startsWith("localpulse-") && key !== CACHE)
+          .filter((key) => key.startsWith("padosi-") && key !== CACHE)
           .map((key) => caches.delete(key)),
       );
       await self.clients.claim();

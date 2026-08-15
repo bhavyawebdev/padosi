@@ -21,7 +21,7 @@ const FRIENDLY: Record<string, string> = {
   "conversation not found": "This conversation is private or no longer exists.",
   "cannot start a conversation with yourself": "You can't message yourself.",
   "cannot message yourself": "You can't message yourself.",
-  "user not found": "That person isn't on LocalPulse anymore.",
+  "user not found": "That person isn't on Padosi anymore.",
   "post not found": "That update has expired or been removed.",
   "provider not found": "This provider profile was removed.",
   "request not found": "This request no longer exists.",

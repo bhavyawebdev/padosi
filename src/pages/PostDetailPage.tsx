@@ -48,7 +48,7 @@ export function PostDetailPage() {
 
   const share = async () => {
     const result = await shareContent({
-      title: "LocalPulse",
+      title: "Padosi",
       text: post.text,
       url: `/posts/${post.id}`,
     });

@@ -1,4 +1,4 @@
-# LocalPulse — API Contracts
+# Padosi — API Contracts
 
 Base URL (dev): `http://localhost:8000/api/v1`
 Auth: `Authorization: Bearer <token>` for authenticated routes.
@@ -286,7 +286,7 @@ Errors: 404.
 
 ---
 
-## Chat — LocalPulse assistant
+## Chat — Padosi assistant
 
 Rule-based, data-aware assistant. No external AI provider or API key — it
 answers from the platform's own data (providers/posts/requests near the
